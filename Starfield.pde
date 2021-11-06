@@ -37,7 +37,7 @@ private void updateShapes(){
         }
         fighter.setTalkTime(fighter.getTalkTime() + 1);
         
-        fighter.talk();
+        //fighter.talk();
       }else{
         fighter.setCD(fighter.getCD() + 1);
         if(fighter.getCD() > 500){
