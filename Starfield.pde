@@ -32,13 +32,7 @@ private void updateShapes() {
   }
 }
 
-private ArrayList<String> phrases() {
-  ArrayList<String> phrases = new ArrayList();
-  phrases.add("I have you now!");
-  phrases.add("Surrender now rebel scum!");
-  phrases.add("You're in my sights");
-  return phrases;
-}
+
 
 private int rnum(int range) {
   return (int) (Math.random()*range);
