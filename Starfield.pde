@@ -4,7 +4,7 @@ public ArrayList<Entity> entities;
 public void setup(){
   size(600,600);
   entities = new ArrayList();
-  entities.add(new TieFighter(500,500));
+ 
   initShapes();
 }
 
@@ -27,27 +27,6 @@ private void updateShapes(){
     Entity entity = entities.get(i);
     entity.move();
     entity.display();
-    if(entity instanceof TieFighter ){
-      TieFighter fighter = (TieFighter) entity;
-      if(fighter.isTalking()){
-        if(fighter.getTalkTime() > 300){
-          fighter.setTalking(false);
-          fighter.setTalkTime(0);
-          continue;
-        }
-        fighter.setTalkTime(fighter.getTalkTime() + 1);
-        
-        fighter.talk();
-      }else{
-        fighter.setCD(fighter.getCD() + 1);
-        if(fighter.getCD() > 500){
-          fighter.setCD(0);
-          fighter.setTalking(true);
-          String phrase = phrases().get((int)(Math.random() * 3));
-          fighter.setPhrase(phrase);
-        }
-      }
-    }
   }
 }
 
@@ -108,7 +87,7 @@ public class Entity {
 
     }
     if(x - toAdd <= targetX){
-      if(!(this instanceof TieFighter)){
+      if(this instanceof Entity){
         x = width - rnum(10);
         y = rnum(height);
         speed = rnum(5) + 5;
@@ -147,77 +126,4 @@ public class Entity {
   private int rnum(int range){
   return (int) (Math.random()*range);
 }
-}
-public class TieFighter extends Entity {
-  public TieFighter(int x, int y) {
-    super(x, y, 0, 0);
-    talking = true;
-    speed = 3;
-  }
-
-  private void updateTarget() {
-    targetX = mouseX;
-    targetY = mouseY;
-  }
-
-  private int talkcd;
-  private int talkTime;
-  private boolean talking;
-  
-  private String phrase = "I have you now!";
-
-  public void talk() {
-    float ty = y;
-    float tx = x;
-    if(y + 10 > height)
-      ty = y - 10;
-    else ty = y + 10;
-    
-    if(x + 200 > width)
-      tx = x - 120;
-    else tx = x + 20;
-    pushMatrix();
-    fill(255);
-    text(phrase, tx, ty);
-    popMatrix();
-  }
-
-  @Override
-    public void display() {
-    updateTarget();
-    pushMatrix();
-    noFill();
-    stroke(255);
-    ellipse(x, y, 15, 15);
-    rect(x+15/2, y-15/2, 5, 15);
-    rect(x-15/2, y-15/2, -5, 15);
-    popMatrix();
-  }
-
-
-  //getters and setters
-
-  public boolean isTalking() {
-    return talking;
-  }
-  public int getTalkTime() {
-    return talkTime;
-  }
-
-  public void setTalking(boolean talking) {
-    this.talking = talking;
-  }
-  public void setTalkTime(int talkTime) {
-    this.talkTime = talkTime;
-  }
-  
-  public void setPhrase(String s){
-    phrase = s;
-  }
-  public void setCD(int cd){
-    talkcd = cd;
-  }
-  public int getCD(){
-    return talkcd;
-  }
 }
