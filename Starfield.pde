@@ -24,23 +24,7 @@ private void initShapes() {
 private void updateShapes() {
   fighter.move();
   fighter.display();
-  if (fighter.isTalking()) {
-    if (fighter.getTalkTime() > 300) {
-      fighter.setTalking(false);
-      fighter.setTalkTime(0);
-    }
-    fighter.setTalkTime(fighter.getTalkTime() + 1);
-    
-    fighter.talk();
-  } else {
-    fighter.setCD(fighter.getCD() + 1);
-    if (fighter.getCD() > 500) {
-      fighter.setCD(0);
-      fighter.setTalking(true);
-      String phrase = phrases().get((int)(Math.random() * 3));
-      fighter.setPhrase(phrase);
-    }
-  }
+
   for (int i = 0; i < entities.length; i++) {
     Entity entity = entities[i];
     entity.move();
