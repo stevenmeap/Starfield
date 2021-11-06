@@ -22,7 +22,7 @@ private void initShapes() {
 }
 
 private void updateShapes() {
-  fighter.move();
+  //fighter.move();
   fighter.display();
 
   for (int i = 0; i < entities.length; i++) {
