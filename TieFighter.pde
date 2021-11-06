@@ -1,4 +1,7 @@
 public class TieFighter extends Entity {
+  private int talkcd;
+  private int talkTime;
+  private boolean talking;
   public TieFighter(int x, int y) {
   
     super(x, y, 0, 0);
@@ -13,9 +16,6 @@ public class TieFighter extends Entity {
     targetY = mouseY;
   }
 
-  private int talkcd;
-  private int talkTime;
-  private boolean talking;
   
 
 
