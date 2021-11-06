@@ -1,11 +1,10 @@
 
 public Entity[] entities;
-public TieFighter fighter;
 
 public void setup() {
   size(600, 600);
-  entities = new Entity[200];
-  fighter = new TieFighter(500,500);
+  entities = new Entity[201];
+  entities[200] = new TieFighter(500, 500);
   initShapes();
 }
 
@@ -22,19 +21,42 @@ private void initShapes() {
 }
 
 private void updateShapes() {
-  //fighter.move();
- // fighter.display();
 
   for (int i = 0; i < entities.length; i++) {
     Entity entity = entities[i];
     entity.move();
-    entity.display();
+    if (entity instanceof TieFighter) {
+      TieFighter fighter = (TieFighter) entity;
+      fighter.show();
+      if (fighter.isTalking()) {
+        if (fighter.getTalkTime() > 300) {
+          fighter.setTalking(false);
+          fighter.setTalkTime(0);
+        }
+        fighter.setTalkTime(fighter.getTalkTime() + 1);
+
+        fighter.talk();
+      } else {
+        fighter.setCD(fighter.getCD() + 1);
+        if (fighter.getCD() > 500) {
+          fighter.setCD(0);
+          fighter.setTalking(true);
+          String phrase = phrases().get((int)(Math.random() * 3));
+          fighter.setPhrase(phrase);
+        }
+      }
+    } else entity.display();
   }
 }
 
-
+private ArrayList<String> phrases() {
+  ArrayList<String> phrases = new ArrayList();
+  phrases.add("I have you now!");
+  phrases.add("Surrender now rebel scum!");
+  phrases.add("You're in my sights");
+  return phrases;
+}
 
 private int rnum(int range) {
   return (int) (Math.random()*range);
 }
-
