@@ -1,6 +1,6 @@
 public class TieFighter extends Entity {
   public TieFighter(int x, int y) {
-    super(x, y, mouseX, mouseY);
+    super(x, y, 0, 0);
     talking = true;
     speed = 3;
   }
