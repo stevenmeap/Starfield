@@ -1,11 +1,11 @@
 
 public Entity[] entities;
-//public TieFighter fighter;
+public TieFighter fighter;
 
 public void setup() {
   size(600, 600);
   entities = new Entity[200];
-  //fighter = new TieFighter(500,500);
+  fighter = new TieFighter(500,500);
   initShapes();
 }
 
@@ -22,8 +22,8 @@ private void initShapes() {
 }
 
 private void updateShapes() {
-  //fighter.move();
-  //fighter.display();
+  fighter.move();
+  fighter.display();
 
   for (int i = 0; i < entities.length; i++) {
     Entity entity = entities[i];
