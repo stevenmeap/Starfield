@@ -1,5 +1,5 @@
 
-public ArrayList<Entity> entities;
+//public ArrayList<Entity> entities;
 
 public void setup(){
   size(600,600);
