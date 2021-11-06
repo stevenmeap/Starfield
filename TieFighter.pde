@@ -48,9 +48,6 @@ public class TieFighter extends Entity {
     this.talkTime = talkTime;
   }
   
-  public void setPhrase(String s){
-    phrase = s;
-  }
   public void setCD(int cd){
     talkcd = cd;
   }
