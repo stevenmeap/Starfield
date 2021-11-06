@@ -41,7 +41,7 @@ public class Entity {
 
     }
     if(x - toAdd <= targetX){
-      if(this instanceof Entity){
+      if(!(this instanceof TieFighter)){
         x = width - rnum(10);
         y = rnum(height);
         speed = rnum(5) + 5;
