@@ -18,9 +18,9 @@ public class TieFighter extends Entity {
 
   
 
-
+/*
   @Override
-    public void display() {
+  public void display() {
     updateTarget();
     pushMatrix();
     noFill();
@@ -30,6 +30,7 @@ public class TieFighter extends Entity {
     rect(x-15/2, y-15/2, 5, 15);
     popMatrix();
   }
+  */
 
 
   //getters and setters
