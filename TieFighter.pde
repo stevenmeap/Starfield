@@ -3,6 +3,8 @@ public class TieFighter extends Entity {
   
     super(x, y, 0, 0);
     talking = true;
+    talkTime = 0;
+    talkcd = 0;
     speed = 3;
   }
 
