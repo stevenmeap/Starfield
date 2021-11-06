@@ -28,7 +28,7 @@ public class TieFighter extends Entity {
     else tx = x + 20;
     pushMatrix();
     fill(255);
-    text(phrase, tx, ty);
+    //text(phrase, tx, ty);
     popMatrix();
   }
 
