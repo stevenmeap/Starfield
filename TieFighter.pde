@@ -2,8 +2,6 @@ public class TieFighter extends Entity {
   public TieFighter(int x, int y) {
   
     super(x, y, 0, 0);
-    
-    phrase = "I have you now!";
     talking = true;
     speed = 3;
   }
@@ -17,7 +15,6 @@ public class TieFighter extends Entity {
   private int talkTime;
   private boolean talking;
   
-  private String phrase;
 
 
   @Override
