@@ -1,11 +1,10 @@
 
-public ArrayList<Entity> entities;
+public Entity[] entities;
 
 public void setup(){
   size(600,600);
-  entities = new ArrayList();
-  entities.add(new TieFighter(500,500));
- 
+  entities = new Entity[201];
+  entities[200] = (new TieFighter(500,500));
   initShapes();
 }
 
@@ -19,15 +18,36 @@ public void draw(){
 
 private void initShapes(){
   for(int i = 0; i < 200; i++){
-    entities.add(new Entity(width - rnum(10), rnum(height), rnum(10), rnum(height)));
+    entities[i] = (new Entity(width - rnum(10), rnum(height), rnum(10), rnum(height)));
   }
 }
 
 private void updateShapes(){
-  for(int i = 0; i < entities.size(); i++){
-    Entity entity = entities.get(i);
+  for(int i = 0; i < entities.length; i++){
+    Entity entity = entities[i];
     entity.move();
     entity.display();
+    if(entity instanceof TieFighter ){
+      TieFighter fighter = (TieFighter) entity;
+      if(fighter.isTalking()){
+        if(fighter.getTalkTime() > 300){
+          fighter.setTalking(false);
+          fighter.setTalkTime(0);
+          continue;
+        }
+        fighter.setTalkTime(fighter.getTalkTime() + 1);
+        
+        fighter.talk();
+      }else{
+        fighter.setCD(fighter.getCD() + 1);
+        if(fighter.getCD() > 500){
+          fighter.setCD(0);
+          fighter.setTalking(true);
+          String phrase = phrases().get((int)(Math.random() * 3));
+          fighter.setPhrase(phrase);
+        }
+      }
+    }
   }
 }
 
@@ -42,4 +62,5 @@ private ArrayList<String> phrases(){
 private int rnum(int range){
   return (int) (Math.random()*range);
 }
+
 
