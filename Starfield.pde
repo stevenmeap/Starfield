@@ -4,6 +4,7 @@ public ArrayList<Entity> entities;
 public void setup(){
   size(600,600);
   entities = new ArrayList();
+  entities.add(new TieFighter(500,500));
  
   initShapes();
 }
