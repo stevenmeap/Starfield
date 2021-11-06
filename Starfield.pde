@@ -3,8 +3,8 @@ public Entity[] entities;
 
 public void setup() {
   size(600, 600);
-  entities = new Entity[201];
-  entities[200] = new TieFighter(500, 500);
+  entities = new Entity[101];
+  entities[100] = new TieFighter(500, 500);
   initShapes();
 }
 
@@ -15,7 +15,7 @@ public void draw() {
 
 
 private void initShapes() {
-  for (int i = 0; i < 200; i++) {
+  for (int i = 0; i < 100; i++) {
     entities[i] = (new Entity(width - rnum(10), rnum(height), rnum(10), rnum(height)));
   }
 }
