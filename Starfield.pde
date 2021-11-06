@@ -17,7 +17,7 @@ public void draw(){
 
 
 private void initShapes(){
-  for(int i = 0; i < 200; i++){
+  for(int i = 0; i < 10; i++){
     entities.add(new Entity(width - rnum(10), rnum(height), rnum(10), rnum(height)));
   }
 }
