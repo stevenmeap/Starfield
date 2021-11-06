@@ -19,21 +19,6 @@ public class TieFighter extends Entity {
   
   private String phrase;
 
-  public void talk() {
-    float ty = y;
-    float tx = x;
-    if(y + 10 > height)
-      ty = y - 10;
-    else ty = y + 10;
-    
-    if(x + 200 > width)
-      tx = x - 120;
-    else tx = x + 20;
-    pushMatrix();
-    fill(255);
-    text(phrase, tx, ty);
-    popMatrix();
-  }
 
   @Override
     public void display() {
