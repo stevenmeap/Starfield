@@ -3,7 +3,7 @@ public class TieFighter extends Entity {
   
     super(x, y, 0, 0);
     
-    
+    phrase = "I have you now!";
     talking = true;
     speed = 3;
   }
@@ -17,7 +17,7 @@ public class TieFighter extends Entity {
   private int talkTime;
   private boolean talking;
   
-  private String phrase = "I have you now!";
+  private String phrase;
 
   public void talk() {
     float ty = y;
