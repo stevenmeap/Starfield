@@ -43,7 +43,11 @@ private void updateShapes(){
         if(fighter.getCD() > 500){
           fighter.setCD(0);
           fighter.setTalking(true);
-          String phrase = phrases().get((int)(Math.random() * 3));
+          String[] phrases = new String[3];
+          phrases[0] = ("I have you now!");
+          phrases[1] = ("Surrender now rebel scum!");
+          phrases[2] = ("You're in my sights");
+          String phrase = phrases[((int)(Math.random() * 3))];
           fighter.setPhrase(phrase);
         }
       }
@@ -51,13 +55,6 @@ private void updateShapes(){
   }
 }
 
-private ArrayList<String> phrases(){
-  ArrayList<String> phrases = new ArrayList();
-  phrases.add("I have you now!");
-  phrases.add("Surrender now rebel scum!");
-  phrases.add("You're in my sights");
-  return phrases;
-}
 
 private int rnum(int range){
   return (int) (Math.random()*range);
